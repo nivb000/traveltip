@@ -4,7 +4,7 @@
     /* height: 700px; */
     display: grid;
     /* flex-direction: row-reverse; */
-    grid-template-columns: repeat(auto-fill, minmax(63.25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(63.25rem, 1fr));
     gap: 10px;
 }
 
