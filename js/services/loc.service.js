@@ -17,7 +17,10 @@ function deleteLoc(id) {
 
 //this fucntion just to work with something
 function createLocations() {
-    createLocation('Greatplace', 32.047104, 34.832384)
+    const locs = storage.load('locationsDB')
+    if(!locs || locs.length < 1){
+        locs.push(createLocation('Greatplace', 32.047104, 34.832384))
+    }
 }
 
 function createLocation(name, lat, lng) {

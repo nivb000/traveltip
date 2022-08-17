@@ -19,6 +19,7 @@ function onInit() {
             console.log('Map is ready')
         })
         .catch(() => console.log('Error: cannot init map'))
+    locService.createLocations()
     onGetLocs()
 
     // renderGlobe()
