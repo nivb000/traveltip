@@ -1,8 +1,6 @@
 .main-nav-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
-    /* width: 70%; */
     gap: 50px;
     margin-inline-start: 20px;
     margin-inline-end: 20px;
@@ -15,21 +13,42 @@
     display: flex;
     justify-content: space-between;
     color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 0 #bbc4d1, inset 10 5px 0 #ffffff;
+    background-color: rgb(0 185 255);
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .nav-container.num-1 {
-    /* margin: 50px; */
+    height: 175px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 0 #bbc4d1, inset 10 5px 0 #ffffff;
+    background-color: rgb(0 185 255);
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 20px;
 }
 
+
+
 .nav-container.num-2 {
-    /* margin: 10px; */
-    /* margin-inline-start: 20px; */
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 0 #bbc4d1, inset 10 5px 0 #ffffff;
+    background-color: rgb(0 185 255);
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .search-box {
     display: flex;
     gap: 2.5px;
-    height: 40px;
+    height: 75px;
 }
 
 .search-bar {
@@ -40,6 +59,7 @@
     color: white;
     font-family: poppins, serif;
     font-size: 1.5rem;
+    padding-inline-start: 15px;
 }
 
 .search-bar::placeholder {
@@ -57,7 +77,6 @@ button {
 .btn-search {
     height: 75px;
     width: 75px;
-    /* background-image: linear-gradient(-86deg, #01913d 0%, #0183bf 100%); */
     font-size: 40px;
 }
 
@@ -72,17 +91,20 @@ button {
 
 .curr-location {
     display: flex;
-    height: 75px;
     margin-inline-end: 15px;
     font-size: 3rem;
-    bottom: 0;
     border-radius: 15px;
     padding: 5px;
-    min-width: 700px;
+    /* min-width: 700px; */
+}
+
+.curr-location-p {
+    text-align: center;
 }
 
 .btn-copy-link {
-    width: 350px;
+    width: 290px;
+    height: 75px;
     font-size: 1.5rem;
     font-family: poppins, serif;
     color: white;

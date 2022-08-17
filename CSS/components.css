@@ -7,16 +7,14 @@
 
 }
 
-/* background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%); */
-
 .main-container {
+    display: flex;
+    flex-direction: column;
     border: 1px solid white;
     border-radius: 25px;
-    height: 100%;
+    height: 100vh;
     padding: 10px;
 }
-
-
 
 .btn-get-locs-container {
     align-items: center;
@@ -29,107 +27,4 @@
     height: 150px;
     width: 150px;
     font-size: 1.5rem;
-}
-
-.map-weather-container {
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
-    /* height: 700px; */
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.weather-table-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.map {
-    flex: 1;
-    border-radius: 15px;
-    margin-bottom: 5px;
-
-
-}
-
-.weather-container {
-    border: 1px solid white;
-    margin-inline-end: 5px;
-    margin-bottom: 5px;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightyellow;
-    border-radius: 15px;
-}
-
-.weather-txt {
-    font-size: 5rem;
-}
-
-.loc-table {
-    /* flex: 1; */
-    /* margin-inline-end: 5px; */
-    margin-bottom: 5px;
-    min-height: 600px;
-    width: 95.5%;
-    margin-inline-start: 2.25%;
-    margin-inline-end: 2.25%;
-    border: 1px solid white;
-
-    /* border-radius: 15px; */
-}
-
-table {
-    background-color: rgb(65, 139, 159);
-    text-align: center;
-    border: 1px solid white;
-}
-
-table thead {
-    width: 20px;
-    border-radius: 15px;
-    background-color: rgb(15, 131, 15);
-    /* background-image: linear-gradient(-86deg, #01913d 0%, #0183bf 100%); */
-    color: white;
-    font-family: poppins, serif;
-    font-size: 1.25rem;
-    border: 1px solid white;
-
-}
-
-th {
-    border: 1px solid white;
-
-}
-
-tbody tr {
-    /* height: 50px; */
-    color: white;
-}
-
-tbody td {
-    background-color: rgb(65, 139, 159);
-    width: 50px;
-    height: 80px;
-    font-size: 2rem;
-    border: 1px solid white;
-
-}
-
-table button {
-    width: 80%;
-    height: 30px;
-    display: block;
-    margin: 15px auto;
-    border: 0;
-    border-radius: 15px;
-    background-color: antiquewhite;
-    cursor: pointer;
-}
-
-table button:hover {
-    opacity: 0.5;
 }
