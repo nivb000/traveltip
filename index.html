@@ -14,7 +14,7 @@
     <section class="main-container">
         <nav class="main-nav-container">
             <div class="nav-container num-1">
-                <form onsubmit="app.onSearch(event)" class="search-box">
+                <form onsubmit="onSearch(event)" class="search-box">
                     <input type="search" name="search" placeholder="Search Location..." class="search-bar">
                     <button class="btn-search">🔍</button>
                 </form>
@@ -23,9 +23,7 @@
             
             <div class="nav-container num-2">
                 <div class="curr-location">
-                    <p class="curr-location-p">
-                        Location:
-                    </p>
+                    <p class="curr-location-p">Location:</p>
                 </div>
                 <button onclick="onGetUserPos()" class="btn-user-pos">My Location</button>
             </div>

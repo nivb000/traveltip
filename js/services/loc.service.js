@@ -18,7 +18,6 @@ function deleteLoc(id) {
 //this fucntion just to work with something
 function createLocations() {
     createLocation('Greatplace', 32.047104, 34.832384)
-    createLocation('Neveragain', 32.047201, 34.832581)
 }
 
 function createLocation(name, lat, lng) {

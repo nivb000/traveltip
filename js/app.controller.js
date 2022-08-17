@@ -99,7 +99,7 @@ function onPanTo(lat, lng) {
 // Change The P To the locatino
 function locationText(lat, lng) {
     let txt = `Location Lat: ${lat} Lng: ${lng}`
-    document.querySelector(".location-line").innerText = txt
+    document.querySelector(".curr-location-p").innerText = txt
 }
 
 function renderGlobe() {
