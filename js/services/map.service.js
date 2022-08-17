@@ -1,7 +1,9 @@
+import { locService  } from "./loc.service.js"
+
 export const mapService = {
     initMap,
     addMarker,
-    panTo
+    panTo,
 }
 
 
@@ -14,19 +16,34 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
         .then(() => {
             console.log('google available')
             gMap = new google.maps.Map(
-                document.querySelector('#map'), {
+            document.querySelector('#map'), {
                 center: { lat, lng },
                 zoom: 15
             })
-            console.log('Map!', gMap)
         })
+        .then(() => {
+            gMap.addListener("click", (mapsMouseEvent) => {
+                let marker = new google.maps.Marker({
+                    position: mapsMouseEvent.latLng,
+                    map: gMap
+                })
+                onAddLocation(marker.position)
+            });
+        })
+}
+
+
+function onAddLocation(pos) {
+    const askToAdd = confirm("Are you want to add this location? ")
+    if(!askToAdd) return
+    const LocationName = prompt("Enter The Location Name")
+    locService.createLocation(LocationName,pos.lat(),pos.lng())
 }
 
 function addMarker(loc) {
     var marker = new google.maps.Marker({
         position: loc,
         map: gMap,
-        title: 'Hello World!'
     })
     return marker
 }
@@ -36,10 +53,9 @@ function panTo(lat, lng) {
     gMap.panTo(laLatLng)
 }
 
-
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = '' //TODO: Enter your API Key
+    const API_KEY = 'AIzaSyA36b7We_tjp91ABvxos4yefbmxkgPNUIM'
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true
