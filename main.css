@@ -1,6 +1,8 @@
 @import "css/typography.css";
 @import "CSS/components.css";
 @import "CSS/nav-bar.css";
+@import "CSS/map-weather.css";
+@import "CSS/table.css";
 @import "CSS/mq/mq.css";
 @import "CSS/layout.css";
 @import "CSS/base.css";
