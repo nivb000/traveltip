@@ -1,3 +1,5 @@
+import { storage } from "./storage.service.js";
+
 export const locService = {
     getLocs,
     createLocations,
@@ -5,14 +7,12 @@ export const locService = {
     deleteLoc
 }
 
-const locs = []
+const locs = storage.load('locationsDB') || []
 
 function deleteLoc(id) {
-    console.log(id);
     const deletedLoc = locs.findIndex(loc => loc.id === id)
-    console.log(deletedLoc);
     locs.splice(deletedLoc, 1)
-    //TODO Resave on local storage the locs array
+    storage.save('locationsDB', locs)
 }
 
 //this fucntion just to work with something
@@ -32,6 +32,7 @@ function createLocation(name, lat, lng) {
         }
     }
     locs.push(location)
+    storage.save('locationsDB', locs)
 }
 
 //To Get the locations

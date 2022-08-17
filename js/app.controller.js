@@ -9,6 +9,9 @@ window.onPanTo = onPanTo
 window.onGetLocs = onGetLocs
 window.onGetUserPos = onGetUserPos
 window.onDeleteLoc = onDeleteLoc
+window.onSearch = onSearch
+
+window.locationText = locationText
 
 function onInit() {
     mapService.initMap()
@@ -16,10 +19,22 @@ function onInit() {
             console.log('Map is ready')
         })
         .catch(() => console.log('Error: cannot init map'))
-    locService.createLocations()
+    onGetLocs()
 
     // renderGlobe()
     setInterval(renderGlobe, 750)
+}
+
+function onSearch(ev) {
+    ev.preventDefault()
+    const elInput = document.querySelector(".search-bar").value
+    mapService.searchLocation(elInput)
+        .then(location => {
+            locService.createLocation(location.name, location.position.lat, location.position.lng),
+            mapService.panTo(location.position.lat, location.position.lng)
+            locationText(location.position.lat, location.position.lng)
+            onGetLocs()
+        })
 }
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
@@ -67,8 +82,7 @@ function onGetUserPos() {
             mapService.panTo(pos.coords.latitude, pos.coords.longitude)
             mapService.addMarker({ lat: pos.coords.latitude, lng: pos.coords.longitude })
             console.log('User position is:', pos.coords)
-            document.querySelector('.user-pos').innerText =
-                `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
+            locationText(pos.coords.latitude, pos.coords.longitude)
         })
         .catch(err => {
             console.log('err!!!', err)
@@ -78,7 +92,14 @@ function onGetUserPos() {
 function onPanTo(lat, lng) {
     console.log('Panning the Map')
     mapService.panTo(lat, lng)
-    mapService.addMarker({lat: lat,lng: lng})
+    locationText(lat, lng)
+    mapService.addMarker({ lat: lat, lng: lng })
+}
+
+// Change The P To the locatino
+function locationText(lat, lng) {
+    let txt = `Location Lat: ${lat} Lng: ${lng}`
+    document.querySelector(".location-line").innerText = txt
 }
 
 function renderGlobe() {

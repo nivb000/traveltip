@@ -1,9 +1,12 @@
 import { locService  } from "./loc.service.js"
 
+const API_KEY = 'AIzaSyA36b7We_tjp91ABvxos4yefbmxkgPNUIM'
+
 export const mapService = {
     initMap,
     addMarker,
     panTo,
+    searchLocation
 }
 
 
@@ -55,7 +58,6 @@ function panTo(lat, lng) {
 
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = 'AIzaSyA36b7We_tjp91ABvxos4yefbmxkgPNUIM'
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true
@@ -65,4 +67,17 @@ function _connectGoogleApi() {
         elGoogleApi.onload = resolve
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
+}
+
+function searchLocation(value) {
+    const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${API_KEY}
+    `
+    const prm = fetch(URL)
+    .then(res => res.json())
+    .then((res) =>  res.results[0])
+    .then(address => ({
+        name: address.formatted_address,
+        position:{lat: address.geometry.location.lat, lng: address.geometry.location.lng}
+    }))
+    return prm
 }
