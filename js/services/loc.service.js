@@ -11,12 +11,12 @@ function deleteLoc(id) {
     console.log(id);
     const deletedLoc = locs.findIndex(loc => loc.id === id)
     console.log(deletedLoc);
-    locs.splice(deletedLoc,1)
+    locs.splice(deletedLoc, 1)
     //TODO Resave on local storage the locs array
 }
 
 //this fucntion just to work with something
-function createLocations(){
+function createLocations() {
     createLocation('Greatplace', 32.047104, 34.832384)
     createLocation('Neveragain', 32.047201, 34.832581)
 }
@@ -26,9 +26,9 @@ function createLocation(name, lat, lng) {
         id: makeid(5),
         name,
         createdAt: Date.now(),
-        pos:{
-            lat,
-            lng
+        pos: {
+            lat: lat.toFixed(2),
+            lng: lng.toFixed(2)
         }
     }
     locs.push(location)

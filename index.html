@@ -10,43 +10,56 @@
 
 <body class="main-layout">
     <header class="main-header">Travel Tip<span class="globe">🌍</span></header>
-    <nav class="main-nav-container">
-        <div class="nav-container num-1">
-            <form onsubmit="app.onSearch(event)" class="search-box">
-                <input type="search" name="search" placeholder="Search Location..." class="search-bar">
-                <button class="btn-search">🔍</button>
-            </form>
-            <button onclick="onGetUserPos()" class="btn-user-pos">My Location</button>
-        </div>
-
-        <div class="nav-container num-2">
-            <div class="curr-location">Location: </div>
-            <button class="btn-copy-link">Copy Location</button>
-        </div>
-    </nav>
 
     <section class="main-container">
-        <div id="map" style="width: 100%; height: 400px;"></div>
-        <!-- <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button> -->
-        <!-- <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button> -->
-        <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
-        <div class="location-container">
-            location: ............... <br>
-            location: ............... <br>
-            location: ...............
+        <nav class="main-nav-container">
+            <div class="nav-container num-1">
+                <form onsubmit="app.onSearch(event)" class="search-box">
+                    <input type="search" name="search" placeholder="Search Location..." class="search-bar">
+                    <button class="btn-search">🔍</button>
+                </form>
+                <button class="btn-copy-link">Copy Location</button>
+            </div>
+            
+            <div class="nav-container num-2">
+                <div class="curr-location">
+                    <p>
+                        Location:
+                    </p>
+                </div>
+                <button onclick="onGetUserPos()" class="btn-user-pos">My Location</button>
+            </div>
+        </nav>
+
+        <div class="btn-get-locs-container">
+            <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
         </div>
-        <div class="weather-container">iknow the weather🌧️</div>
+
+        <div class="map-weather-container">
+            <div id="map" style="width: 100%; height: 850px;" class="map"></div>
+            <!-- <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button> -->
+            <!-- <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button> -->
+            <div class="weather-container">
+                <p class="weather-txt">
+                    i know the weather 🌧️
+                </p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="loc-table">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Pos</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody class="list-locations"></tbody>
+            </table>
+        </div>
+
     </section>
-    <table>
-        <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Created At</th>
-            <th>Pos</th>
-            <th>Actions</th>
-        </thead>
-        <tbody class="list-locations"></tbody>
-    </table>
 
     <script type="module" src="js/app.controller.js"></script>
 </body>
