@@ -1,0 +1,39 @@
+.map-weather-container {
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+    /* height: 700px; */
+    display: grid;
+    /* flex-direction: row-reverse; */
+    grid-template-columns: repeat(auto-fit, minmax(63.25rem, 1fr));
+    gap: 10px;
+}
+
+.weather-table-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.map {
+    flex: 1;
+    border-radius: 15px;
+    margin-bottom: 5px;
+
+
+}
+
+.weather-container {
+    border: 1px solid white;
+    margin-inline-end: 5px;
+    margin-bottom: 5px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightyellow;
+    border-radius: 15px;
+}
+
+.weather-txt {
+    font-size: 5rem;
+}

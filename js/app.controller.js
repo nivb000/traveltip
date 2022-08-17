@@ -64,7 +64,7 @@ function onGetLocs() {
             <tr>
                 <td>${loc.id}</td>
                 <td>${loc.name}</td>
-                <td>${new Date(loc.createdAt)}</td>
+                <td>${new Date(loc.createdAt).toLocaleString()}</td>
                 <td>lat: ${loc.pos.lat},lng: ${loc.pos.lng}</td>
                 <td>
                     <button class="btn-action" onclick="onPanTo(${loc.pos.lat},${loc.pos.lng})">Go</button>

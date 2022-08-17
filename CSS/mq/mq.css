@@ -1,0 +1,51 @@
+@media(max-width:2250px) {
+    .weather-txt {
+        font-size: 3rem;
+    }
+
+}
+
+@media(max-width:1500px) {
+    html {
+        font-size: 12px;
+    }
+
+    .map-weather-container {
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    }
+}
+
+
+@media(max-width:1200px) {
+    .nav-container.num-1 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-container.num-2 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .curr-location-p {
+        align-self: flex-start;
+    }
+
+    .search-box {
+        width: 80%;
+    }
+
+    html {
+        font-size: 10px;
+    }
+}
+
+@media(max-width:700) {
+    html {
+        font-size: 8px;
+    }
+
+    .map-weather-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
