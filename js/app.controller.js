@@ -1,6 +1,8 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
 
+var gGlobeIdx = 1
+
 window.onload = onInit
 window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
@@ -15,6 +17,9 @@ function onInit() {
         })
         .catch(() => console.log('Error: cannot init map'))
     locService.createLocations()
+
+    // renderGlobe()
+    setInterval(renderGlobe, 750)
 }
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
@@ -74,4 +79,13 @@ function onPanTo(lat, lng) {
     console.log('Panning the Map')
     mapService.panTo(lat, lng)
     mapService.addMarker({lat: lat,lng: lng})
+}
+
+function renderGlobe() {
+    const globes = ['🌍', '🌎', '🌏']
+    var currGlobe = globes[gGlobeIdx]
+    const elGlobe = document.querySelector('.globe')
+    elGlobe.innerHTML = currGlobe
+    gGlobeIdx++
+    if (gGlobeIdx === 3) gGlobeIdx = 0
 }
